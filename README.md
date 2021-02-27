@@ -1,4 +1,5 @@
 # Kotlin
+모든것이 객체
 ## Basic Syntax
 ### 패키지 정의
 - 최상위에 정의
@@ -92,3 +93,81 @@ if (x in 1..10) {
 ### Collections
 - list는 `lisOf`, `setOf` 사용해서 선언
 - filter, map등의 연산 가능
+## Basic Types
+### 배열
+- 배열은 Array 클래스로 표현
+- get, set
+```kotlin
+var array: Array<String> = arrayOf("코틀린", "강의")
+println(array.get(0))
+println(array[0])
+
+val b = Array(5, {i -> i.toString() })
+// b = [0, 1, 2, 3, 4]
+```
+
+### 문자열 리터럴
+- raw String("""Kotlin""")
+- \n사용하지 않고 그냥 엔터로 입력 가능
+```kotlin
+val s = """
+"'이것은 코틀린의
+raw String
+입니다.'"
+"""
+```
+
+## Control Flow
+### when
+- when 사용 시 else 필수
+- 여러개의 조건 사용 시 `,` 사용
+- 조건에 함수나 식 사용 가느
+## Packages, Return and Jumps
+### Packages
+- import as 사용 가능
+- Package 미선언시 기본 Package에 들어감
+### Return and Jumps
+- Label -> 식별자 + @ 사용
+- return continue break 사용 가능
+- 암시적 레이블 (람다가 사용된 함수의 이름과 동일)
+
+## Class
+### 기본생성자
+- `class 이름 constructor(Name: String){}
+- 초기화는 초기화 블록 안에서 작성
+- init 블록 안에서 작성
+```kotlin
+class Customer(name: String){
+    init{
+        logger.info(")
+    }
+}
+```
+### 보조생성자
+- 클래스가 기본생성자를 가지고 있다면, 보조생성자들은 기본생성자를 직접 or 간접적으로 위임해 주어야 함
+```kotlin
+class Person(val name: String){
+    constructor(naem: String, parent: Person) : this(name){}
+    // 직접
+
+    constructor() : this("홍길동", Person()){}
+    // 간접
+}
+```
+### 인스턴스 생성
+- new 키워드 없음
+- 생성자를 함수처럼 호출 하면 됨
+
+## Inheritance
+### 상속
+- 코틀린의 최상위 클래스는 Any
+- 상위타입을 선언하지 않으면 Any가 상속됨
+- 부모를 open으로 선언 해줘야 상속 가능
+### 오버라이딩
+- open으로 선언된 함수만 override 가능
+- open으로 선언된 프로퍼티만 override 가능
+### 추상 클래스
+- 구현 x
+- abstract 클래스
+- 추상 메서드 생성 가능
+- open 필요 x

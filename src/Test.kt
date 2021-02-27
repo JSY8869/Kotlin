@@ -1,3 +1,9 @@
 fun main() {
-    println("Hello World!")
+    val obj = Customer("코틀린")
+}
+
+class Customer(name: String) {
+    init {
+        println("이름 : $name")
+    }
 }
