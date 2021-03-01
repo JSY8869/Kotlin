@@ -171,3 +171,12 @@ class Person(val name: String){
 - abstract 클래스
 - 추상 메서드 생성 가능
 - open 필요 x
+
+## Properties and Fields
+### 프로퍼티
+- var(mutable), val(read-only)로 선언
+- getter, setter 사용(생략가능)
+### Field
+- 코틀린은 자동으로 생성해줌
+- 프로퍼티의 accessor에서만 field라는 식별자를 사용
+- accessor중 1개라도 기본 구현을 하는 경우, custom accessor에서 참조한 경우 생성됨
