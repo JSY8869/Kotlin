@@ -30,7 +30,7 @@ x += 1
 ```kotlin
 // 주석
 /* 주석
-주석 /*
+주석 */
 ```
 
 ### 문자열 템플릿
@@ -133,7 +133,7 @@ raw String
 
 ## Class
 ### 기본생성자
-- `class 이름 constructor(Name: String){}
+- `class 이름 constructor(Name: String){}`
 - 초기화는 초기화 블록 안에서 작성
 - init 블록 안에서 작성
 ```kotlin
@@ -143,6 +143,7 @@ class Customer(name: String){
     }
 }
 ```
+
 ### 보조생성자
 - 클래스가 기본생성자를 가지고 있다면, 보조생성자들은 기본생성자를 직접 or 간접적으로 위임해 주어야 함
 ```kotlin
@@ -154,6 +155,7 @@ class Person(val name: String){
     // 간접
 }
 ```
+
 ### 인스턴스 생성
 - new 키워드 없음
 - 생성자를 함수처럼 호출 하면 됨
@@ -180,3 +182,24 @@ class Person(val name: String){
 - 코틀린은 자동으로 생성해줌
 - 프로퍼티의 accessor에서만 field라는 식별자를 사용
 - accessor중 1개라도 기본 구현을 하는 경우, custom accessor에서 참조한 경우 생성됨
+
+## Data Classes
+### Data 클래스
+- DB
+- equals, hashCode, copy, toString, comonentN 자동으로 생성해 줌
+- 기본생성자에 1개 이상의 파라매터 있어야 함(var, val)
+```kotlin
+data class User(var value: String)
+
+val obj = User("Kotlin")
+val obj2 = obj.copy("Kotlin!!")
+```
+- `var(name, age) = "1", 1` 이렇게도 선언 가능
+- `pair`, `Triple` 스탠다드 라이브러리도 있음
+### 중첩 클래스
+- 클래스 내에 클래스 선언 및 사용 가능
+- 내부 클래스는 아니고 중첩일 뿐임
+- `Outer.inner().function()`
+### 내부 클래스
+- 클래스 내에 inner로 새로운 클래스 선언
+- `Outer().inner().function()`

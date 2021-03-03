@@ -1,9 +1,6 @@
 fun main() {
-    val obj = Customer("코틀린")
+    val obj = User("Kotlin", 12)
+    print(obj.toString())
 }
 
-class Customer(name: String) {
-    init {
-        println("이름 : $name")
-    }
-}
+data class User(var name: String, var age: Int)
