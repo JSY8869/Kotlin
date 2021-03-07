@@ -203,3 +203,29 @@ val obj2 = obj.copy("Kotlin!!")
 ### 내부 클래스
 - 클래스 내에 inner로 새로운 클래스 선언
 - `Outer().inner().function()`
+## Object
+### 용도
+- 어떤 class에서 조금 변경된 객체를 생성 할 때
+- 새로운 subclass의 명시적인 선언 없이 객체 생성
+- private으로 사용하는게 좋음
+- 객체 몸체에서 외부의 변수에도 접근 가능
+- Companion Object -> static
+```kotlin
+fun main() {
+    val t = Thread(object : Runnable {
+        override fun run() {
+            println("Hi")
+        }
+    })
+    t.run()
+
+    val data = object{
+    var x = 1
+    var y = 2
+    }
+}
+```
+### 객체 선언
+- object 키워드 뒤에 이름
+### Companion Object
+- companion object의 멤버는 클래스 이름을 통해서 호출 가능
